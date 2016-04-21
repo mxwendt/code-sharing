@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Code Snippet</title>
+  <link rel="stylesheet" href="google-code-prettify/prettify.css">
+</head>
+<body>
+  <pre class="default prettyprint">
+    <code>
+      function fibonacci(size) {
+        var first = 0;
+        var second = 1;
+        var next;
+        var cound = 2;
+        var result = [first, second];
+
+        if (size < 2) {
+          return "the request was made but it was not good";
+        }
+
+        while (count++ < size) {
+          next = first + second;
+          first = second;
+          second = next;
+          result.push(next);
+        }
+
+        return result;
+      }
+    </code>
+  </pre>
+  <script src="d3/d3.js" charset="utf-8"></script>
+  <script src="google-code-prettify/prettify.js" charset="utf-8"></script>
+  <script>
+    window.onload = function() {
+      prettyPrint();
+    };
+  </script>
+</body>
+</html>
