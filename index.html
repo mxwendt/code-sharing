@@ -5,7 +5,43 @@
   <link rel="stylesheet" href="google-code-prettify/prettify.css">
 </head>
 <body>
-  <pre class="default prettyprint">
+  <pre class="default linenums prettyprint">
+    <code>
+      // Number value
+      var number = 0;
+      // String value
+      var string = "String";
+      // Number values
+      var boolean = true;
+      // Number value
+      var undefined = undefined;
+      // Number value
+      var null = null;
+      // Number value
+      var object = {name: value, name: value};
+      // Number value
+      var array = [0, 1, 2];
+      // if control
+      if (true) {
+        console.log("true");
+      } else {
+        console.log("false");
+      }
+      // while control
+      while (true) {
+        console.log("true");
+      }
+      // do while control
+      do {
+        console.log("true");
+      } while (true)
+      // for loop
+      for (var i = 0; i < 10; i++) {
+        console.log(i);
+      }
+    </code>
+  </pre>
+  <pre class="default linenums prettyprint">
     <code>
       function fibonacci(size) {
         var first = 0;
@@ -13,18 +49,15 @@
         var next;
         var cound = 2;
         var result = [first, second];
-
         if (size < 2) {
           return "the request was made but it was not good";
         }
-
         while (count++ < size) {
           next = first + second;
           first = second;
           second = next;
           result.push(next);
         }
-
         return result;
       }
     </code>
@@ -33,7 +66,34 @@
   <script src="google-code-prettify/prettify.js" charset="utf-8"></script>
   <script>
     window.onload = function() {
+      // PR_ATTRIB_NAME: "atn",
+      // PR_ATTRIB_VALUE: "atv",
+      // PR_COMMENT: "com",
+      // PR_DECLARATION: "dec",
+      // PR_KEYWORD: "kwd",
+      // PR_LITERAL: "lit",
+      // PR_NOCODE: "nocode",
+      // PR_PLAIN: "pln",
+      // PR_PUNCTUATION: "pun",
+      // PR_SOURCE: "src",
+      // PR_STRING: "str",
+      // PR_TAG: "tag",
+      // PR_TYPE: "typ",
       prettyPrint();
+
+      var lits = d3.selectAll('.lit');
+      lits.each(function() {
+        //console.log(this.textContent);
+      });
+
+      // Select all semicolons after value assignments
+      var semicolons = d3.selectAll('.pun').filter(function(i, d) {
+        if (this.textContent === ";" ||
+            this.textContent === "};" ||
+            this.textContent === "];") {
+          return this;
+        }
+      });
     };
   </script>
 </body>
