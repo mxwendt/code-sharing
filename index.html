@@ -7,47 +7,11 @@
 <body>
   <pre class="default linenums prettyprint">
     <code>
-      // Number value
-      var number = 0;
-      // String value
-      var string = "String";
-      // Number values
-      var boolean = true;
-      // Number value
-      var undefined = undefined;
-      // Number value
-      var null = null;
-      // Number value
-      var object = {name: value, name: value};
-      // Number value
-      var array = [0, 1, 2];
-      // if control
-      if (true) {
-        console.log("true");
-      } else {
-        console.log("false");
-      }
-      // while control
-      while (true) {
-        console.log("true");
-      }
-      // do while control
-      do {
-        console.log("true");
-      } while (true)
-      // for loop
-      for (var i = 0; i < 10; i++) {
-        console.log(i);
-      }
-    </code>
-  </pre>
-  <pre class="default linenums prettyprint">
-    <code>
       function fibonacci(size) {
         var first = 0;
         var second = 1;
         var next;
-        var cound = 2;
+        var count = 2;
         var result = [first, second];
         if (size < 2) {
           return "the request was made but it was not good";
@@ -94,6 +58,9 @@
           return this;
         }
       });
+
+      var lineCount = document.querySelector('ol.linenums');
+      console.log(lineCount.children.length);
     };
   </script>
 </body>
