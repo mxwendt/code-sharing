@@ -1,0 +1,91 @@
+svg {
+  display: block;
+  box-shadow: inset 0 0 5px 0px rgba(0,0,0,0.3);
+  overflow: visible;
+}
+
+.snippet {
+  margin: 100px auto;
+}
+
+.snippet:after {
+ content: "";
+ display: table;
+ clear: both;
+}
+
+.code, .data {
+  display: block;
+  float: left;
+}
+
+.linenums {
+  margin: 0;
+}
+
+.linenums > li {
+  padding-right: 20px;
+  background-color: #FFFFFF;
+  list-style-type: decimal;
+}
+
+.linenums > li:nth-child(odd) {
+  background-color: #F8F8F8
+}
+
+.linenums > li:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 0, 0.4);
+}
+
+pre.prettyprint {
+  padding: 0;
+  border: none;
+}
+
+.background {
+  fill: #F0F0F0;
+}
+
+.axis {
+  shape-rendering: crispEdges;
+}
+
+.axis line {
+  stroke: #000000;
+}
+
+.axis text {
+  font-family: monospace;
+  font-size: 8px;
+}
+
+.tick:first-of-type,
+.tick:last-of-type {
+  display: none;
+}
+
+.tick text {
+  display: none;
+}
+
+.tick:nth-child(5n+1) text {
+  display: block;
+}
+
+.tick line {
+  height: 3;
+}
+
+.axis .minor {
+  stroke-opacity: .5;
+}
+
+.axis path {
+  display: none;
+}
+
+.dot.is-hovered {
+  cursor: pointer;
+  fill: #EC5E5D;
+}
