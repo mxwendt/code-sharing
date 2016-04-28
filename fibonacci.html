@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Fibonacci</title>
+  <title>Fibonacci Series</title>
   <link rel="stylesheet" href="google-code-prettify/prettify.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -11,85 +11,6 @@
   <script type="text/javascript" src="d3/d3.js" charset="utf-8"></script>
   <script type="text/javascript" src="beautify/beautify.js" charset="utf-8"></script>
   <script type="text/javascript" src="google-code-prettify/prettify.js" charset="utf-8"></script>
-  <script>
-    window.onload = function() {
-      for (var i = 0; i < snippets.length; i++) {
-        visualize(snippets[i]);
-      }
-
-      // TODO: Set the width of the snippet container to the widest snippet
-      // snippetContainerElem.style.width = 2 * w + 1 + 'px';
-
-
-      function visualize(snippet) {
-        var execution = snippet.execution;
-        var code = snippet.code;
-
-        var snippetContainerElem = document.createElement('div');
-        snippetContainerElem.classList.add('snippet');
-
-        var codeContainerElem = document.createElement('div');
-        codeContainerElem.classList.add('code');
-
-        var dataContainerElem = document.createElement('div');
-        dataContainerElem.classList.add('data');
-
-        var codeElem = document.createElement('code');
-        codeElem.textContent = js_beautify(code);
-
-        var preElem = document.createElement('pre');
-        preElem.classList.add('default', 'linenums', 'prettyprint');
-
-        preElem.appendChild(codeElem);
-        codeContainerElem.appendChild(preElem);
-        snippetContainerElem.appendChild(codeContainerElem);
-        snippetContainerElem.appendChild(dataContainerElem);
-        document.querySelector('.snippets').appendChild(snippetContainerElem);
-
-        prettyPrint();
-
-        var w = (execution.length + 2) * 10;
-        var h = codeContainerElem.clientHeight;
-        var lineCount = codeContainerElem.querySelector('ol.linenums').children.length;
-
-        var svg = d3.select(dataContainerElem)
-          .append('svg')
-            .attr('width', w)
-            .attr('height', h)
-            .style('background-image', 'repeating-linear-gradient(180deg, #F8F8F8, #F8F8F8 ' +
-              (h / lineCount) + 'px, #FFFFFF ' + (h / lineCount) + 'px, #FFFFFF ' + (h / lineCount * 2) + 'px)');
-
-        var x = d3.scale.ordinal().domain(d3.range(execution.length + 2)).rangePoints([0, w]);
-        var y = d3.scale.ordinal().domain(d3.range(lineCount + 1)).rangePoints([0, h]);
-
-        var axis = d3.svg.axis()
-          .scale(x)
-          .orient('top')
-          .ticks(2);
-
-        var xAxis = svg.append("g")
-          .attr("class", "axis")
-          .call(axis);
-
-        var dots = svg.selectAll('.dot')
-            .data(execution)
-          .enter().append('circle')
-            .attr('class', 'dot')
-            .attr('cx', function(d, i) { return x(i + 1); })
-            .attr('cy', function(d, i) { return y(d) + (h / lineCount / 2); })
-            .attr('r', 3)
-          .on('mouseover', function(e) {
-            this.classList.add('is-hovered');
-          })
-          .on('mouseout', function(e) {
-            this.classList.remove('is-hovered');
-          });
-
-        // TODO: Add lines between dots to make order more clear?
-
-        snippetContainerElem.style.width = codeContainerElem.clientWidth + dataContainerElem.clientWidth + 1 + 'px';
-      }
-    };
-  </script>
+  <script type="text/javascript" src="visualize.js" charset="utf-8"></script>
 </body>
 </html>

@@ -33,11 +33,6 @@ svg {
   background-color: #F8F8F8
 }
 
-.linenums > li:hover {
-  cursor: pointer;
-  background-color: rgba(255, 255, 0, 0.4);
-}
-
 pre.prettyprint {
   padding: 0;
   border: none;
@@ -85,7 +80,11 @@ pre.prettyprint {
   display: none;
 }
 
-.dot.is-hovered {
-  cursor: pointer;
-  fill: #EC5E5D;
+.val {
+  font-family: monospace;
+  font-size: 10px;
+}
+
+.lit:hover {
+  cursor: ew-resize;;
 }
