@@ -12,7 +12,8 @@ function Snippet() {
     this.createMarkup();
     this.addCode();
     this.addData();
-    this.addListeners();
+    this.addState();
+    // this.addListeners();
     this.visualize();
   };
 
@@ -68,6 +69,8 @@ function Snippet() {
     this.codeWrapper.classList.add('code');
     this.dataWrapper = document.createElement('div');
     this.dataWrapper.classList.add('data');
+    this.stateWrapper = document.createElement('div');
+    this.stateWrapper.classList.add('state');
 
     this.pre = document.createElement('pre');
     this.pre.classList.add('default', 'linenums', 'prettyprint');
@@ -77,14 +80,9 @@ function Snippet() {
     this.codeWrapper.appendChild(this.pre);
     this.wrapper.appendChild(this.codeWrapper);
     this.wrapper.appendChild(this.dataWrapper);
+    this.wrapper.appendChild(this.stateWrapper);
     document.querySelector('.snippets').appendChild(this.wrapper);
 
-    this.paramSize = document.createElement('input');
-    this.paramSize.type = "range";
-    this.paramSize.min = 1;
-    this.paramSize.max = 10;
-    this.paramSize.value = 0;
-    this.wrapper.appendChild(this.paramSize);
   };
 
   this.addCode = function() {

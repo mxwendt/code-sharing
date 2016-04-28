@@ -14,7 +14,7 @@ svg {
  clear: both;
 }
 
-.code, .data {
+.code, .data, .state {
   display: block;
   float: left;
 }
@@ -23,14 +23,19 @@ svg {
   margin: 0;
 }
 
-.linenums > li {
+ol.linenums > li {
   padding-right: 20px;
   background-color: #FFFFFF;
+  position: relative;
   list-style-type: decimal;
 }
 
-.linenums > li:nth-child(odd) {
+ol.linenums > li:nth-child(odd) {
   background-color: #F8F8F8
+}
+
+ol.linenums .state {
+  position: absolute;
 }
 
 pre.prettyprint {
@@ -87,4 +92,17 @@ pre.prettyprint {
 
 .lit:hover {
   cursor: ew-resize;;
+}
+
+.state > ol {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 5px;
+  font-family: monospace;
+  list-style: none;
+}
+
+.state > ol > li {
+    height: 15px;
 }
