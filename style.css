@@ -35,6 +35,10 @@ ol.linenums > li:nth-child(odd) {
   background-color: #F8F8F8
 }
 
+ol.linenums > li.is-highlighted {
+  background-color: yellow;
+}
+
 ol.linenums .state {
   position: absolute;
 }
@@ -112,5 +116,5 @@ input.timeSlider {
   margin: 0;
   position: absolute;
   top: -7px;
-  left: -7px;
+  left: 3px;
 }

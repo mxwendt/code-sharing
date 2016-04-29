@@ -15,6 +15,7 @@ function Snippet() {
   var dataWrapper
   var stateWrapper;
   var code;
+  var highlightedLine;
 
   return {
     init: init
@@ -77,6 +78,12 @@ function Snippet() {
     return codeWrapper.querySelector('ol.linenums').children.length;
   }
 
+  function highlightLine(num) {
+    if (highlightedLine !== undefined) highlightedLine.classList.remove('is-highlighted');
+    highlightedLine = codeWrapper.querySelector('ol.linenums').children[num];
+    highlightedLine.classList.add('is-highlighted');
+  }
+
   function createMarkup() {
     wrapper = document.createElement('div');
     wrapper.classList.add('snippet');
@@ -120,12 +127,17 @@ function Snippet() {
     var slider = document.createElement('input');
     slider.type = "range";
     slider.min = 0;
-    slider.max = snippet.execution.length + 1;
-    slider.value = snippet.execution.length + 1;
+    slider.max = snippet.execution.length - 1;
+    slider.value = 0;
     slider.classList.add('timeSlider');
-    slider.style.width = getW() + 14 + 'px';
+    slider.style.width = getW() - 6 + 'px';
+
+    slider.addEventListener('input', function(e) {
+      highlightLine(snippet.execution[e.target.value]);
+    });
 
     dataWrapper.appendChild(slider);
+    highlightLine(snippet.execution[0]);
   }
 
   function addState() {
