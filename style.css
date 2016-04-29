@@ -112,6 +112,12 @@ pre.prettyprint {
     height: 15px;
 }
 
+.stateVal {
+    /*font-family: monospace;*/
+    position: absolute;
+    left: 100px;
+}
+
 input.timeSlider {
   margin: 0;
   position: absolute;

@@ -48,13 +48,13 @@ function Snippet() {
 
     // UPDATE old elements present in new data
     dots.attr('cx', function(d, i) { return x(i + 1); })
-        .attr('cy', function(d, i) { return y(d) + (getH() / getLineCount() / 2); });
+        .attr('cy', function(d, i) { return y(d.line) + (getH() / getLineCount() / 2); });
 
     // ENTER new elements present in new data
     dots.enter().append('circle')
         .attr('class', function(d, i) { return 'dot' + ' ' + d; })
         .attr('cx', function(d, i) { return x(i + 1); })
-        .attr('cy', function(d, i) { return y(d) + (getH() / getLineCount() / 2); })
+        .attr('cy', function(d, i) { return y(d.line) + (getH() / getLineCount() / 2); })
         .attr('r', 3);
 
     var axis = d3.svg.axis()
@@ -80,8 +80,25 @@ function Snippet() {
 
   function highlightLine(num) {
     if (highlightedLine !== undefined) highlightedLine.classList.remove('is-highlighted');
-    highlightedLine = codeWrapper.querySelector('ol.linenums').children[num];
+    highlightedLine = codeWrapper.querySelector('ol.linenums').children[snippet.execution[num].line];
     highlightedLine.classList.add('is-highlighted');
+  }
+
+  function updateState(num) {
+    var values = stateWrapper.querySelectorAll('.stateVal');
+
+    for (var i = 0; i < values.length; i++) {
+      values[i].textContent = "";
+    }
+
+    var state;
+
+    for (var j = 0; j <= num; j++) {
+      if (snippet.execution[j].name) {
+        state = stateWrapper.querySelector('.' + snippet.execution[j].name);
+        state.nextSibling.textContent = snippet.execution[j].val;
+      }
+    }
   }
 
   function createMarkup() {
@@ -123,6 +140,31 @@ function Snippet() {
       .attr("class", "axis");
   }
 
+  function addState() {
+    // TODO: Visualize state and behavior
+    var values = document.createElement('ol');
+    var widestItem = 0;
+
+    for (var i = 0; i < snippet.state.length; i++) {
+      console.log(snippet.state[i]);
+      var item = document.createElement('li');
+
+      var name = document.createElement('span');
+      name.textContent = snippet.state[i].name;
+      name.classList.add(snippet.state[i].type === "param" ? "com" : "kwd");
+      name.classList.add(snippet.state[i].name);
+      item.appendChild(name);
+
+      var value = document.createElement('span');
+      value.classList.add('stateVal');
+      item.appendChild(value);
+
+      values.appendChild(item);
+    }
+
+    stateWrapper.appendChild(values);
+  }
+
   function addTimeSlider() {
     var slider = document.createElement('input');
     slider.type = "range";
@@ -133,14 +175,12 @@ function Snippet() {
     slider.style.width = getW() - 6 + 'px';
 
     slider.addEventListener('input', function(e) {
-      highlightLine(snippet.execution[e.target.value]);
+      highlightLine(e.target.value);
+      updateState(e.target.value);
     });
 
     dataWrapper.appendChild(slider);
-    highlightLine(snippet.execution[0]);
-  }
-
-  function addState() {
-    // TODO: Visualize state and behavior
+    highlightLine(0);
+    updateState(0);
   }
 };
