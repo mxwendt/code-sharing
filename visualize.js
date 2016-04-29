@@ -11,6 +11,7 @@ function Snippet() {
   var y;
   var xAxis;
   var wrapper;
+  var title;
   var codeWrapper;
   var dataWrapper
   var stateWrapper;
@@ -104,6 +105,8 @@ function Snippet() {
   function createMarkup() {
     wrapper = document.createElement('div');
     wrapper.classList.add('snippet');
+    title = document.createElement('h2');
+    title.textContent = snippet.title;
     codeWrapper = document.createElement('div');
     codeWrapper.classList.add('code');
     dataWrapper = document.createElement('div');
@@ -117,6 +120,7 @@ function Snippet() {
 
     pre.appendChild(code);
     codeWrapper.appendChild(pre);
+    wrapper.appendChild(title);
     wrapper.appendChild(codeWrapper);
     wrapper.appendChild(dataWrapper);
     wrapper.appendChild(stateWrapper);

@@ -1,67 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Code Snippet</title>
-  <link rel="stylesheet" href="google-code-prettify/prettify.css">
+  <title>Code Sharing</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <pre class="default linenums prettyprint">
-    <code>
-      function fibonacci(size) {
-        var first = 0;
-        var second = 1;
-        var next;
-        var count = 2;
-        var result = [first, second];
-        if (size < 2) {
-          return "the request was made but it was not good";
-        }
-        while (count++ < size) {
-          next = first + second;
-          first = second;
-          second = next;
-          result.push(next);
-        }
-        return result;
-      }
-    </code>
-  </pre>
-  <script src="d3/d3.js" charset="utf-8"></script>
-  <script src="google-code-prettify/prettify.js" charset="utf-8"></script>
-  <script>
-    window.onload = function() {
-      // PR_ATTRIB_NAME: "atn",
-      // PR_ATTRIB_VALUE: "atv",
-      // PR_COMMENT: "com",
-      // PR_DECLARATION: "dec",
-      // PR_KEYWORD: "kwd",
-      // PR_LITERAL: "lit",
-      // PR_NOCODE: "nocode",
-      // PR_PLAIN: "pln",
-      // PR_PUNCTUATION: "pun",
-      // PR_SOURCE: "src",
-      // PR_STRING: "str",
-      // PR_TAG: "tag",
-      // PR_TYPE: "typ",
-      prettyPrint();
-
-      var lits = d3.selectAll('.lit');
-      lits.each(function() {
-        //console.log(this.textContent);
-      });
-
-      // Select all semicolons after value assignments
-      var semicolons = d3.selectAll('.pun').filter(function(i, d) {
-        if (this.textContent === ";" ||
-            this.textContent === "};" ||
-            this.textContent === "];") {
-          return this;
-        }
-      });
-
-      var lineCount = document.querySelector('ol.linenums');
-      console.log(lineCount.children.length);
-    };
-  </script>
+  <div class="l-main">
+    <h1>Code Sharing</h1>
+    <ul>
+      <li>
+        <a href="fibonacci.html">Fibonacci</a><br>
+        <a href="fibonacci2.html">Fibonacci II</a>
+        <p><b>Question:</b> How to write a function that returns the first n numbers of the Fibonacci sequence.</p>
+      </li>
+    </ul>
+  </div>
 </body>
 </html>

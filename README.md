@@ -1,2 +1,3 @@
 # code-sharing
-How can textual code snippets be enhanced to simplify the knowledge sharing process for programmers?
+
+Visualizing code on the Web for the knowledge exchange between programmers.

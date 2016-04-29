@@ -65,6 +65,4 @@ function visualize(snippet) {
       .text(function(d) { return d.val; });
 
   // TODO: Add lines between dots to make order more clear?
-
-  snippetContainerElem.style.width = codeContainerElem.clientWidth + dataContainerElem.clientWidth + 1 + 'px';
 }

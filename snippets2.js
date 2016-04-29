@@ -1,5 +1,6 @@
 var snippets = [
   {
+    "title": "Ernest Hemmingway",
     "code": "/**\n * @param {Number} size\n * @return {Array} result\n */\nfunction fibonacci(size) { var first = 0; var second = 1; var next; var count = 2; var result = [first, second]; if (size < 2) { return 'the request was made but it was not good'; } while (count++ < size) { next = first + second; first = second; second = next; result.push(next); } return result; }\n\nfibonacci(6);",
     "execution": [
       {line: 22, val: "()"},

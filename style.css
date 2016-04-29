@@ -5,7 +5,7 @@ svg {
 }
 
 .snippet {
-  margin: 100px auto;
+  margin: 50px auto;
 }
 
 .snippet:after {
@@ -22,6 +22,10 @@ svg {
 
 .linenums {
   margin: 0;
+}
+
+ol.linenums {
+  padding-left: 0;
 }
 
 ol.linenums > li {
@@ -207,4 +211,16 @@ input.timeSlider {
         color: #600;
         font-style: italic
     }
+}
+
+.l-main {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+body {
+  margin-left: 50px;
+  margin-right: 50px;
+  font-family: Helvetica, Arial, sans-serif;
 }
