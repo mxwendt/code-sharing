@@ -27,6 +27,7 @@ function Snippet() {
     addCode();
     addData();
     addState();
+    addTimeSlider();
     // addListeners();
     visualize();
   }
@@ -113,6 +114,18 @@ function Snippet() {
 
     xAxis = svg.append("g")
       .attr("class", "axis");
+  }
+
+  function addTimeSlider() {
+    var slider = document.createElement('input');
+    slider.type = "range";
+    slider.min = 0;
+    slider.max = snippet.execution.length + 1;
+    slider.value = snippet.execution.length + 1;
+    slider.classList.add('timeSlider');
+    slider.style.width = getW() + 14 + 'px';
+
+    dataWrapper.appendChild(slider);
   }
 
   function addState() {
