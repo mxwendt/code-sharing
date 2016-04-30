@@ -132,12 +132,12 @@ pre.prettyprint {
     display: inline-block;
     min-width: 300px;
     position: absolute;
-    left: 100px;
+    left: 150px;
 }
 
 .stateName {
   display: inline-block;
-  max-width: 92px;
+  max-width: 142px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

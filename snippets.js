@@ -1,7 +1,7 @@
 var snippets = [
   {
     "title": "Ernest Hemmingway",
-    "code": "/**\n * @param {Number} size\n * @return {Array} result\n */\nfunction fibonacci(size) { var first = 0; var second = 1; var next; var count = 2; var result = [first, second]; if (size < 2) { return 'the request was made but it was not good'; } while (count++ < size) { next = first + second; first = second; second = next; result.push(next); } return result; }\n\nfibonacci(6);",
+    "code": "/**\n * @param {Number} size\n * @return {Array} array\n */\nfunction fibonacci(size) { var first = 0; var second = 1; var next; var count = 2; var result = [first, second]; if (size < 2) { return 'the request was made but it was not good'; } while (count++ < size) { next = first + second; first = second; second = next; result.push(next); } return result; }\n\nfibonacci(6);",
     "execution": [
       {line: 22, name: "size", val: 6},
       {line: 5, name: "first", val: 0},
@@ -31,7 +31,7 @@ var snippets = [
       {line: 16, name: "second", val: 5},
       {line: 17, name: "result", val: "[0,1,1,2,3,5]"},
       {line: 13},
-      {line: 19, name: "result", val: "[0,1,1,2,3,5]"}
+      {line: 19, name: "array", val: "[0,1,1,2,3,5]"}
     ],
     "state": [
       {name: "size", type: "param"},
@@ -39,7 +39,8 @@ var snippets = [
       {name: "second", type: "var"},
       {name: "next", type: "var"},
       {name: "count", type: "var"},
-      {name: "result", type: "param"}
+      {name: "result", type: "var"},
+      {name: "array", type: "return"}
     ]
   },
   {

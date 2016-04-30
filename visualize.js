@@ -227,8 +227,8 @@ function Snippet() {
       var item = document.createElement('li');
 
       var name = document.createElement('span');
-      name.textContent = snippet.state[i].name;
-      name.classList.add(snippet.state[i].type === "param" ? "com" : "kwd");
+      name.textContent = snippet.state[i].type + " " + snippet.state[i].name;
+      name.classList.add(snippet.state[i].type === "param" || snippet.state[i].type === "return" ? "com" : "kwd");
       name.classList.add(snippet.state[i].name);
       name.classList.add('stateName');
       item.appendChild(name);
