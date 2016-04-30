@@ -27,6 +27,9 @@ function Snippet() {
 
     createMarkup();
     addCode();
+
+    if (snippet.execution.length <= 0) return;
+
     addData();
     addState();
     addTimeSlider();
@@ -105,8 +108,10 @@ function Snippet() {
   function createMarkup() {
     wrapper = document.createElement('div');
     wrapper.classList.add('snippet');
-    title = document.createElement('h2');
-    title.textContent = snippet.title;
+    if (snippet.title) {
+      title = document.createElement('h2');
+      title.textContent = snippet.title;
+    }
     codeWrapper = document.createElement('div');
     codeWrapper.classList.add('code');
     dataWrapper = document.createElement('div');
@@ -120,7 +125,7 @@ function Snippet() {
 
     pre.appendChild(code);
     codeWrapper.appendChild(pre);
-    wrapper.appendChild(title);
+    if (snippet.title) wrapper.appendChild(title);
     wrapper.appendChild(codeWrapper);
     wrapper.appendChild(dataWrapper);
     wrapper.appendChild(stateWrapper);
@@ -157,6 +162,7 @@ function Snippet() {
       name.textContent = snippet.state[i].name;
       name.classList.add(snippet.state[i].type === "param" ? "com" : "kwd");
       name.classList.add(snippet.state[i].name);
+      name.classList.add('stateName');
       item.appendChild(name);
 
       var value = document.createElement('span');
@@ -177,6 +183,7 @@ function Snippet() {
     slider.value = 0;
     slider.classList.add('timeSlider');
     slider.style.width = getW() - 6 + 'px';
+    if (snippet.execution.length <= 1) slider.style.display = 'none';
 
     slider.addEventListener('input', function(e) {
       highlightLine(e.target.value);

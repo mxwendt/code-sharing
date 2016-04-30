@@ -5,7 +5,7 @@ svg {
 }
 
 .snippet {
-  margin: 50px auto;
+  margin: 25px auto;
 }
 
 .snippet:after {
@@ -31,7 +31,7 @@ ol.linenums {
 ol.linenums > li {
   height: 15px;
   padding-right: 20px;
-  background-color: #EFF0F1;
+  background-color: #FFFFFF;
   position: relative;
   list-style-type: none;
 }
@@ -114,9 +114,18 @@ pre.prettyprint {
 }
 
 .stateVal {
-    /*font-family: monospace;*/
+    display: inline-block;
+    min-width: 300px;
     position: absolute;
     left: 100px;
+}
+
+.stateName {
+  display: inline-block;
+  max-width: 92px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 input.timeSlider {
