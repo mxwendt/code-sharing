@@ -71,7 +71,7 @@ var snippets = [
   },
   {
     "title": "Andre Breton",
-    "code": "/**\n * @param {Number} umbrella\n * @return {Array} armada\n */\nfunction Colette(umbrella) { var staircaise = 0, galleons = 0, brigantines = 1; var armada = [galleons, brigantines], bassoon; Array.prototype.embrace = [].push;\n\nwhile (2 + staircaise++ < umbrella) { bassoon = galleons + brigantines; armada.embrace(brigantines = (galleons = brigantines, bassoon)); }\n\nreturn armade; }\n\nColetta(6);",
+    "code": "/**\n * @param {Number} umbrella\n * @return {Array} armada\n */\nfunction Colette(umbrella) { var staircaise = 0, galleons = 0, brigantines = 1; var armada = [galleons, brigantines], bassoon; Array.prototype.embrace = [].push;\n\nwhile (2 + staircaise++ < umbrella) { bassoon = galleons + brigantines; armada.embrace(brigantines = (galleons = brigantines, bassoon)); }\n\nreturn armada; }\n\nColetta(6);",
     "execution": [
       {line: 20, name: "umbrella", val: 6},
       {line: 5, name: "staircaise", val: 0},

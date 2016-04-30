@@ -22,6 +22,7 @@ function Snippet() {
   var isVisualized = false;
   var currentDot;
   var lastNum;
+  var slider;
 
   return {
     init: init
@@ -166,6 +167,7 @@ function Snippet() {
             visualize();
             isVisualized = true;
             addTimeSlider();
+            addLegend();
           } else {
             highlightLine(0);
             highlightDot(0);
@@ -252,6 +254,7 @@ function Snippet() {
     if (snippet.execution.length <= 1) slider.style.display = 'none';
 
     slider.addEventListener('input', function(e) {
+      e.stopPropagation();
       highlightLine(e.target.value);
       highlightDot(e.target.value);
       updateState(e.target.value);
@@ -261,6 +264,19 @@ function Snippet() {
     highlightLine(0);
     highlightDot(0);
     updateState(0);
+  }
+
+  function addLegend() {
+    var execLabel = document.createElement('div');
+    execLabel.classList.add('wrapper-label');
+    execLabel.textContent = "Execution";
+
+    var stateLabel = document.createElement('div');
+    stateLabel.classList.add('wrapper-label');
+    stateLabel.textContent = "State";
+
+    dataWrapper.appendChild(execLabel);
+    stateWrapper.appendChild(stateLabel);
   }
 
   function toggleVisualization() {
