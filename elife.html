@@ -6,13 +6,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Electronic Life</h1>
-  <p>A non-trivial program.</p>
-  <div class="snippets"></div>
-  <script type="text/javascript" src="snippets-elife.js" charset="utf-8"></script>
+  <h1>A non-trivial program</h1>
+  <p>The code is simulating a virtual ecosystem, a little world populated with critters that move around and struggle for survival. (<i>Source:</i> <a href="http://eloquentjavascript.net/07_elife.html">http://eloquentjavascript.net/07_elife.html</a>)</p>
+  <h2>Written in a natural language</h2>
+  <p>To make this task manageable, we will radically simplify the concept of a world. Namely, a world will be a two-dimensional grid where each entity takes up one full square of the grid. On every turn, the critters all get a chance to take some action.</p>
+  <p>Thus, we chop both time and space into units with a fixed size: squares for space and turns for time. Of course, this is a somewhat crude and inaccurate approximation. But our simulation is intended to be amusing, not accurate, so we can freely cut such corners.</p>
+  <p>We can define a world with a plan, an array of strings that lays out the world's grid using one character per square.</p>
+  <p>The "#" characters in this plan represent walls and rocks, and the "o" characters represent critters. The spaces, as you might have guessed, are empty space.</p>
+  <p>A plan array can be used to create a world object. Such an object keeps track of the size and content of the world. It has a toString method, which converts the world back to a printable string (similar to the plan it was based on) so that we can see what's going on inside. The world object also has a turn method, which allows all the critters in it to take one turn and updates the world to reflect their actions.</p>
+  <h2>Written in a programming language (JS)</h2>
+  <div class="snippets">
+    <div class="visBtnWrapper">
+      <button class="showAllBtn">Visualize</button>
+      <button class="hideAllBtn">Unvisualize</button>
+    </div>
+  </div>
+  <script type="text/javascript" src="elife.snippets.js" charset="utf-8"></script>
   <script type="text/javascript" src="d3/d3.js" charset="utf-8"></script>
   <script type="text/javascript" src="beautify/beautify.js" charset="utf-8"></script>
   <script type="text/javascript" src="google-code-prettify/prettify.js" charset="utf-8"></script>
+  <script type="text/javascript" src='ractive/ractive.min.js'></script>
   <script type="text/javascript" src="visualize.js" charset="utf-8"></script>
 </body>
 </html>
